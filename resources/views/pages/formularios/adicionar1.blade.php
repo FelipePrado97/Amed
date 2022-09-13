@@ -12,7 +12,7 @@
         <div class="card">
 
         <div class="saveDataWrap">
-        <button id="saveData" type="button">SALVAR</button>
+        <button id="saveData" type="button">External Save Button</button>
         </div>
         <div id="build-wrap"></div>
 
@@ -26,19 +26,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
-    
-    
-    <script> 
-            jQuery(($) => {
-        const fbEditor = document.getElementById("build-wrap");
-        const formBuilder = $(fbEditor).formBuilder();
-
-        document.getElementById("saveData").addEventListener("click", () => {
-            console.log("external save clicked");
-            const result = formBuilder.actions.save();
-            console.log("result:", result);
-            window.location.href = "/formularios";
-        });
-        });
-    </script>
 @endpush('js')

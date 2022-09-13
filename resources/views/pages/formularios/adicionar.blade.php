@@ -17,6 +17,39 @@
         <div id="build-wrap"></div>
 
         </div>
+
+        <div class="table-responsive">
+            
+            <table class="table align-items-center">
+                <thead class="thead-light">
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Criado Em</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-lista-formularios">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-right">
+                                <div class="dropdown">
+                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                        <a class="dropdown-item" href="#">Editar</a>
+                                        <a class="dropdown-item" href="#">Criar Cópia</a>
+                                        <a class="dropdown-item" href="#">Excluir</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
     </div>
 
     @include('layouts.footers.auth')
@@ -37,8 +70,28 @@
             console.log("external save clicked");
             const result = formBuilder.actions.save();
             console.log("result:", result);
-            window.location.href = "/formularios";
+            this.listatabela();
+            //window.location.href = "/formularios";
+
         });
         });
+    </script>
+    <script>
+        class Formulario{
+            listatabela() {
+            let tabela = document.getElementById('tabela-lista-formularios');
+            for(i=0; i< this.result.length;i++){
+                let tr = tabela.insertRow();
+                
+                let td_id = tr.insertCell();
+                let td_titulo = tr.insertCell();
+                let td_tipo = tr.insertCell();
+                let td_criado_em = tr.insertCell();
+                let td_acoes = tr.insertCell();
+
+                td_id.innerText = this.result
+            }
+            }
+        }
     </script>
 @endpush('js')

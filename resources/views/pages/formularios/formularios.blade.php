@@ -44,11 +44,7 @@
                 </table>
             </div>
     </div>
-    <div class="setDataWrap">
-        <button id="getXML" type="button">Get XML Data</button>
-        <button id="getJSON" type="button">Get JSON Data</button>
-        <button id="getJS" type="button">Get JS Data</button>
-    </div>
+   
 
 
 
@@ -58,5 +54,5 @@
 @push('js')
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
-    
+    <script src="js/scriptformularios.js"></script>
 @endpush

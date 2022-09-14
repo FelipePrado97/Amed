@@ -10,9 +10,9 @@
             </div>
         </div>
         <div class="card">
-
+        <div><input class="form-control form-control-lg" placeholder="Título: " id=titulo-formulario></input></div>
         <div class="saveDataWrap">
-        <button id="saveData" type="button">SALVAR</button>
+        <button class="btn btn-primary" id="saveData" type="button">SALVAR</button>
         </div>
         <div id="build-wrap"></div>
 
@@ -67,12 +67,18 @@
         const formBuilder = $(fbEditor).formBuilder();
 
         document.getElementById("saveData").addEventListener("click", () => {
-            console.log("external save clicked");
-            const result = formBuilder.actions.save();
+            console.log("Botão de salvar Clicado");
+            //conferir se foi dado títutlo
+            
+            if(document.getElementById('titulo-formulario').value !=""){
+                const result = formBuilder.actions.save();
             console.log("result:", result);
 
             formulario.salvar(result);
-            
+            }else{
+                alert("Favor, preencha o Título do Formulário")
+            }
+                        
             //window.location.href = "/formularios";
 
         });
@@ -86,14 +92,29 @@
                 this.arrayFormularios = [];
             }
 
+            function pegaData(data){
+                var data = new Date();
+                console.log('data',data);
+                return data;
+            }
+            function pegaHora(){
+
+            }
             salvar(result){
                 var i =0;
-                var j =0;
+               
                 console.log("Tamanho: ", result.length);
                 var tipos = result[0].type
                 console.log("Tipo ", tipos);
+                var str_data = pegaData(data);
+                //var str_hora = pegaHora();
                 for(i=0; i<result.length; i++){
-                    result[i]['id'] = i;   
+                    result['Id'] = i;
+                    result['Título'] = document.getElementById('titulo-formulario').value;
+                    
+                    
+                    
+                    result['Data'] = str_data;   
                 }
                 
                 console.log("depois de ter adicionado o id", result);

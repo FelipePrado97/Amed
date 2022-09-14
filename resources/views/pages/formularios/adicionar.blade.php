@@ -70,7 +70,9 @@
             console.log("external save clicked");
             const result = formBuilder.actions.save();
             console.log("result:", result);
-            this.listatabela();
+
+            formulario.salvar(result);
+            
             //window.location.href = "/formularios";
 
         });
@@ -78,6 +80,29 @@
     </script>
     <script>
         class Formulario{
+
+            constructor(){
+                this.id = 1;
+                this.arrayFormularios = [];
+            }
+
+            salvar(result){
+                var i =0;
+                var j =0;
+                console.log("Tamanho: ", result.length);
+                var tipos = result[0].type
+                console.log("Tipo ", tipos);
+                for(i=0; i<result.length; i++){
+                    result[i]['id'] = i;   
+                }
+                
+                console.log("depois de ter adicionado o id", result);
+                //console.log("entrou no salvar",result.filter(type => result == 'button'));  
+                //arrayFormularios= formBuilder.actions.getData();
+               // console.log("array do formulario",arrayFormularios);
+                //let formulario = this.lerDados();
+            }
+
             listatabela() {
             let tabela = document.getElementById('tabela-lista-formularios');
             for(i=0; i< this.result.length;i++){
@@ -90,8 +115,27 @@
                 let td_acoes = tr.insertCell();
 
                 td_id.innerText = this.result
+                }
             }
+
+            adicionar(result){
+                this.arrayFormularios.push(result);
+                this.id++;
+                console.log(this.arrayFormularios)
+            }   
+
+            lerDados(){
+                let formulario = {}
+
+                formulario.id = this.id;
+                //formulario.titulo = 
             }
+            validaCampos(){
+
+            }
+
         }
+
+        var formulario = new Formulario();
     </script>
 @endpush('js')

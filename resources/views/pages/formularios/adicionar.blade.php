@@ -17,7 +17,7 @@
         <div id="build-wrap"></div>
 
         </div>
-
+        <div class="card">
         <div class="table-responsive">
             
             <table class="table align-items-center">
@@ -27,6 +27,7 @@
                         <th scope="col">Título</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Criado Em</th>
+                        <th scope="col">Ações</th>
                         </tr>
                     </thead>
                     <tbody id="tabela-lista-formularios">
@@ -34,6 +35,7 @@
                     </tbody>
                 </table>
             </div>
+        </div>
     </div>
 
     @include('layouts.footers.auth')
@@ -94,24 +96,32 @@
              
             }
             listaTabela(){
-                let tbody = getElementById('tabela-lista-formularios');
+                console.log("entrou lista tabela"); 
+                let tbody = document.getElementById('tabela-lista-formularios');
                 tbody.innerText = '';
 
                 for(let i = 0; i< this.arrayFormularios.length; i++){
+                    
                     let tr = tbody.insertRow();
 
                     let td_id = tr.insertCell();
                     let td_titulo = tr.insertCell();
+                    let td_tipo = tr.insertCell();
                     let td_data = tr.insertCell();
                     let td_acao = tr.insertCell();
                     
-                    td.id.innerText = this.arrayFormularios[i].id;
-                    td.titulo.innerText = this.arrayFormularios[i].titulo;
-                    td.data.innerText = this.arrayFormularios[i].data;
-                    
-                    td_acao = 
+                    td_id.innerText = this.arrayFormularios[i].id;
+                    td_titulo.innerText = this.arrayFormularios[i].titulo;
+                    td_tipo.innerText = 'Resposta / Devolutiva';
+                    td_data.innerText = this.arrayFormularios[i].data;
 
-
+                    let imgEdit = document.createElement('img');
+                    imgEdit.src = "../assets/img/brand/editar.svg" ;
+                    td_acao.appendChild(imgEdit);
+                    //imgEdit.src = "img/excluir.png" ;
+                    //td_acao.appendChild(imgEdit);
+                   // imgEdit.src = "img/duplicar.png" ;
+                   // td_acao.appendChild(imgEdit);
 
                 }
             }
@@ -120,7 +130,7 @@
                 console.log("entrou adicionar");
                 this.arrayFormularios.push(formulario);
                 this.id++;  
-                console.log(this.arrayFormularios); 
+               
 
                 //TENHO QUE FAZER O LINK DO JASON NA TABELA
             }

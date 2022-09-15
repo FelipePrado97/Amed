@@ -17,6 +17,7 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
+        "bootstrap-icons": "^1.9.1",
         "formBuilder": "^3.8.3",
         "i18n": "^0.15.0"
     }

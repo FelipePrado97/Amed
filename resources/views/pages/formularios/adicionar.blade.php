@@ -30,23 +30,7 @@
                         </tr>
                     </thead>
                     <tbody id="tabela-lista-formularios">
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="text-right">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                        <a class="dropdown-item" href="#">Editar</a>
-                                        <a class="dropdown-item" href="#">Criar Cópia</a>
-                                        <a class="dropdown-item" href="#">Excluir</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
@@ -85,76 +69,88 @@
         });
     </script>
     <script>
-        class Formulario{
-
-            constructor(){
+        class Formulario {
+            
+            constructor() {
                 this.id = 1;
                 this.arrayFormularios = [];
             }
 
-            function pegaData(data){
-                var data = new Date();
-                console.log('data',data);
-                return data;
-            }
-            function pegaHora(){
-
-            }
+            
             salvar(result){
                 var i =0;
                
-                console.log("Tamanho: ", result.length);
-                var tipos = result[0].type
-                console.log("Tipo ", tipos);
-                var str_data = pegaData(data);
-                //var str_hora = pegaHora();
-                for(i=0; i<result.length; i++){
-                    result['Id'] = i;
-                    result['Título'] = document.getElementById('titulo-formulario').value;
-                    
-                    
-                    
-                    result['Data'] = str_data;   
+                for(i=0; i<result.length; i++) {
+                    //result['Id'] = i;
+                    result['Titulo'] = document.getElementById('titulo-formulario').value;
+                    result['Data'] = new Date();   
                 }
+             let formulario = this.lerDados(result);
+             if(this.validaCampos(formulario)){
+                this.adicionar(formulario);
                 
-                console.log("depois de ter adicionado o id", result);
-                //console.log("entrou no salvar",result.filter(type => result == 'button'));  
-                //arrayFormularios= formBuilder.actions.getData();
-               // console.log("array do formulario",arrayFormularios);
-                //let formulario = this.lerDados();
+             }
+             this.listaTabela();
+             
+            }
+            listaTabela(){
+                let tbody = getElementById('tabela-lista-formularios');
+                tbody.innerText = '';
+
+                for(let i = 0; i< this.arrayFormularios.length; i++){
+                    let tr = tbody.insertRow();
+
+                    let td_id = tr.insertCell();
+                    let td_titulo = tr.insertCell();
+                    let td_data = tr.insertCell();
+                    let td_acao = tr.insertCell();
+                    
+                    td.id.innerText = this.arrayFormularios[i].id;
+                    td.titulo.innerText = this.arrayFormularios[i].titulo;
+                    td.data.innerText = this.arrayFormularios[i].data;
+                    
+                    td_acao = 
+
+
+
+                }
             }
 
-            listatabela() {
-            let tabela = document.getElementById('tabela-lista-formularios');
-            for(i=0; i< this.result.length;i++){
-                let tr = tabela.insertRow();
-                
-                let td_id = tr.insertCell();
-                let td_titulo = tr.insertCell();
-                let td_tipo = tr.insertCell();
-                let td_criado_em = tr.insertCell();
-                let td_acoes = tr.insertCell();
+            adicionar(formulario){
+                console.log("entrou adicionar");
+                this.arrayFormularios.push(formulario);
+                this.id++;  
+                console.log(this.arrayFormularios); 
 
-                td_id.innerText = this.result
-                }
+                //TENHO QUE FAZER O LINK DO JASON NA TABELA
             }
 
-            adicionar(result){
-                this.arrayFormularios.push(result);
-                this.id++;
-                console.log(this.arrayFormularios)
-            }   
-
-            lerDados(){
+            
+            lerDados(result) {
+                console.log("ler dados");
                 let formulario = {}
 
                 formulario.id = this.id;
-                //formulario.titulo = 
+                formulario.titulo = result.Titulo;
+                formulario.data = result.Data;
+                formulario.dados = result;
+                return formulario;
             }
-            validaCampos(){
 
+            validaCampos(formulario){
+                console.log("entrou valida campos");
+                let msg = "";
+                if(formulario.titulo == ""){
+                    msg += " - Informe o nome do Formulário \n"
+                }
+                if(msg != ''){
+                    alert(msg);
+                    return false;
+                }
+                return true;
             }
 
+            
         }
 
         var formulario = new Formulario();

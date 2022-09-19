@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FormController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,8 +32,11 @@ Route::group(['middleware' => 'auth'], function () {
 	 Route::get('map', function () {return view('pages.maps');})->name('map');
 	 Route::get('icons', function () {return view('pages.icons');})->name('icons'); 
 	 Route::get('table-list', function () {return view('pages.tables');})->name('table');
-	 Route::get('/formularios', function () {return view('pages.formularios.formularios');})->name('formularios');
-	 Route::get('/formularios/adicionar', function () {return view('pages.formularios.adicionar');})->name('adicionar');
+	 //Route::get('/formularios', function () {return view('pages.formularios.formularios');})->name('formularios');
+	 //Route::get('/formularios/adicionar', function () {return view('pages.formularios.adicionar');})->name('adicionar');
+	 Route::get('/formularios', [FormController::class, 'forms'] )->name('formularios');
+	 Route::get('/formularios/adicionar', [FormController::class, 'adicionar'] );
+	 
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 

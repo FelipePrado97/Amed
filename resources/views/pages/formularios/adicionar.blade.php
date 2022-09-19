@@ -94,6 +94,7 @@
              }
              this.listaTabela();
              
+             
             }
             listaTabela(){
                 console.log("entrou lista tabela"); 
@@ -177,7 +178,7 @@
                 alert("editar");
             }
             duplicar(){
-                alert("duplciar");
+                alert("duplicar");
             }
             excluir(id){
                 if(confirm('Deseja realmente deletar o produto do ID'+ id   )){
@@ -192,6 +193,8 @@
                 }
                 
             }
+
+            
 
             
         }

@@ -117,12 +117,26 @@
 
                     let imgEdit = document.createElement('img');
                     imgEdit.src = "../assets/img/brand/editar.svg" ;
+                    imgEdit.setAttribute("onclick","formulario.editar("+ this.arrayFormularios[i].id +")");
                     td_acao.appendChild(imgEdit);
+
+                    let imgDup = document.createElement('img');
+                    imgDup.src = "../assets/img/brand/duplicar.svg" ;
+                    imgDup.setAttribute("onclick","formulario.duplicar("+ this.arrayFormularios[i].id +")");                  
+                    td_acao.appendChild(imgDup);
+
+                    let imgExcl = document.createElement('img');
+                    imgExcl.src = "../assets/img/brand/excluir.svg" ;
+                    imgExcl.setAttribute("onclick","formulario.excluir("+ this.arrayFormularios[i].id +")");
+                    td_acao.appendChild(imgExcl);
+                    
                     //imgEdit.src = "img/excluir.png" ;
                     //td_acao.appendChild(imgEdit);
                    // imgEdit.src = "img/duplicar.png" ;
                    // td_acao.appendChild(imgEdit);
+                    //criar funçao para limar depois de enviar
 
+                    
                 }
             }
 
@@ -158,6 +172,25 @@
                     return false;
                 }
                 return true;
+            }
+            editar(){
+                alert("editar");
+            }
+            duplicar(){
+                alert("duplciar");
+            }
+            excluir(id){
+                if(confirm('Deseja realmente deletar o produto do ID'+ id   )){
+                    let tbody = document.getElementById('tabela-lista-formularios');
+
+                    for(let i = 0 ; i < this.arrayFormularios.length; i++){
+                        if(this.arrayFormularios[i].id == id){
+                            this.arrayFormularios.splice(i,1);
+                            tbody.deleteRow(i);
+                        }
+                    }
+                }
+                
             }
 
             

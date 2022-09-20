@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 	 //Route::get('/formularios', function () {return view('pages.formularios.formularios');})->name('formularios');
 	 //Route::get('/formularios/adicionar', function () {return view('pages.formularios.adicionar');})->name('adicionar');
 	 Route::get('/formularios', [FormController::class, 'forms'] )->name('formularios');
+	 Route::post('/formulariosadicionar', [FormController::class, 'store'] )->name('formularios1');
 	 Route::get('/formularios/adicionar', [FormController::class, 'adicionar'] );
 	 
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);

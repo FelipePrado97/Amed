@@ -10,13 +10,26 @@
             </div>
         </div>
         <div class="card">
-        <div><input class="form-control form-control-lg" placeholder="Título: " id=titulo-formulario></input></div>
+        <div>
+        <form id="form" action="/formulariosadicionar" method="POST">
+            @csrf
+            
+            <div class="form-group">
+                <input type="text" class="form-control form-control-lg" placeholder="Título: " id="titulo" name="titulo"></input>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control form-control-lg" placeholder="Tipo: " id="tipo" name="tipo"></input>
+            </div>
+            <!--<input type="submit" class="btn btn-primary" value="Salvar">-->
+        
         <div class="saveDataWrap">
         <button class="btn btn-primary" id="saveData" type="button">SALVAR</button>
         </div>
-        <div id="build-wrap"></div>
-
         </div>
+        <div id="build-wrap"></div>
+        </form>
+        </div>
+        
         <div class="card">
         <div class="table-responsive">
             
@@ -56,16 +69,22 @@
             console.log("Botão de salvar Clicado");
             //conferir se foi dado títutlo
             
-            if(document.getElementById('titulo-formulario').value !=""){
+            if(document.getElementById('titulo').value !=""){
                 const result = formBuilder.actions.save();
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "array";
+                input.value = JSON.stringify(result);   
+                form.appendChild(input);
+                form.submit();
             console.log("result:", result);
-
+            
             formulario.salvar(result);
             }else{
                 alert("Favor, preencha o Título do Formulário")
             }
                         
-            //window.location.href = "/formularios";
+           
 
         });
         });
@@ -90,7 +109,6 @@
              let formulario = this.lerDados(result);
              if(this.validaCampos(formulario)){
                 this.adicionar(formulario);
-                
              }
              this.listaTabela();
              

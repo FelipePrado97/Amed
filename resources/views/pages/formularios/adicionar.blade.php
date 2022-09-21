@@ -35,7 +35,7 @@
             
             <table class="table align-items-center">
                 <thead class="thead-light">
-                        <tr>
+                        <tr class="table-light">
                         <th scope="col">#</th>
                         <th scope="col">Título</th>
                         <th scope="col">Tipo</th>

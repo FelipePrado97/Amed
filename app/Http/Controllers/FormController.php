@@ -13,12 +13,15 @@ class FormController extends Controller
         return view('pages.formularios.adicionar');
     }
     public function forms(){
-        
+        $forms = Form::all();
+        return view('pages.formularios.formularios',['forms' => $forms]);
+    }
 
+    public function destroy($id) {
 
-        return view('pages.formularios.formularios');
-        
+        Form::findOrFail($id)->delete();
 
+        return redirect('/formularios')->with('msg','Formulario excluído com sucesso!');
     }
 
     public function store(Request $request){

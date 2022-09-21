@@ -14,7 +14,7 @@
         </div>
         <div class="table-responsive">
             
-            <table class="table align-items-center">
+            <table class="table align-items-center" style="text-align: center;">
                 <thead class="thead-light">
                         <tr>
                         <th scope="col">#</th>
@@ -24,7 +24,7 @@
                         <th scope="col">Ações</th>
                         </tr>
                     </thead>
-                    <tbody id="tabela-lista-formularios">
+                    <tbody id="tabela-lista-formularios" style="text-align: center; position: center;">
                         @foreach($forms as $form)
                             <tr class="table">
                                 <td><a>{{$form->id}}</a></td>
@@ -32,23 +32,23 @@
                                 <td><a>{{$form->tipo}}</a></td>
                                 <td><a>{{$form->updated_at}}</a></td>
                                 <td class="text-right">
-                                
-                                    <form action="/formularioseditar/{{$form->id}}" method="POST" style="display: inline-block;">
+                                <div style="display: inline; text-align: center;">
+                                    <form action="/formularioseditar/{{$form->id}}" method="POST" style="display: inherit;">
                                         @csrf 
                                         @method('GET')
                                         <button type="submit" class="btn btn-primary delete-btn"><ion-icon name="trash-outline"></ion-icon>Editar</button>
                                     </form>
-                                    <form action="/formulariosdeletar/{{$form->id}}" method="POST"style="display: inline-block;">
+                                    <form action="/formulariosdeletar/{{$form->id}}" method="POST"style="display: inherit;">
                                         @csrf 
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon>Deletar</button>
                                     </form>
-                                    <form action="/formulariosduplicar/{{$form->id}}" method="POST" style="display: inline-block;">
+                                    <form action="/formulariosduplicar/{{$form->id}}" method="POST" style="display: inherit;">
                                         @csrf 
                                         @method('GET')
                                         <button type="submit" class="btn btn-secundary delete-btn"><ion-icon name="trash-outline"></ion-icon>Duplicar</button>
                                     </form>
-                                
+                                </div>
                             </td>
                             </tr>
                         @endforeach

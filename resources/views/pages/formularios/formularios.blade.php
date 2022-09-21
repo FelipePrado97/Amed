@@ -32,22 +32,23 @@
                                 <td><a>{{$form->tipo}}</a></td>
                                 <td><a>{{$form->updated_at}}</a></td>
                                 <td class="text-right">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                    </a>
-                                    <form action="/formulariosdeletar/{{$form->id}}" method="POST">
+                                
+                                    <form action="/formularioseditar/{{$form->id}}" method="POST" style="display: inline-block;">
+                                        @csrf 
+                                        @method('GET')
+                                        <button type="submit" class="btn btn-primary delete-btn"><ion-icon name="trash-outline"></ion-icon>Editar</button>
+                                    </form>
+                                    <form action="/formulariosdeletar/{{$form->id}}" method="POST"style="display: inline-block;">
                                         @csrf 
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon>Deletar</button>
                                     </form>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-
-                                        <a class="dropdown-item" onclick="editar({{$form->id}})">Editar</a>
-                                        <a class="dropdown-item" onclick="duplicar({{$form->id}})">Duplicar</a>
-                                        <a class="dropdown-item" onclick="excluir({{$form->id}})">Excluir</a>
-                                    </div>
-                                </div>
+                                    <form action="/formulariosduplicar/{{$form->id}}" method="POST" style="display: inline-block;">
+                                        @csrf 
+                                        @method('GET')
+                                        <button type="submit" class="btn btn-secundary delete-btn"><ion-icon name="trash-outline"></ion-icon>Duplicar</button>
+                                    </form>
+                                
                             </td>
                             </tr>
                         @endforeach

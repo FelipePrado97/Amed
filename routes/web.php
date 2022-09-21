@@ -38,6 +38,9 @@ Route::group(['middleware' => 'auth'], function () {
 	 Route::post('/formulariosadicionar', [FormController::class, 'store'] )->name('formularios1');
 	 Route::get('/formularios/adicionar', [FormController::class, 'adicionar'] );
 	 Route::delete('/formulariosdeletar/{id}', [FormController::class, 'destroy']);
+	 Route::get('/formularioseditar/{id}', [FormController::class, 'edit']);
+	 Route::put('/formularios/update/{id}', [FormController::class, 'update']);
+	 Route::get('/formulariosduplicar/{id}', [FormController::class, 'duplicar']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 

@@ -70,22 +70,7 @@
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
     <script src="js/scriptformularios.js"></script>
 
-    <script>
-        
-    </script>
-    <script> 
-        function editar($id){
-            console.log($id);
-        }
-        function duplicar($id){
-            console.log($id);
-        }
-        function excluir($id){
-            console.log($id);
-        }
-        
-        
-    </script>
+
 
 
 

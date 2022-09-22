@@ -77,34 +77,84 @@
                 </div>
             </form>
             <!-- Navigation -->
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
+                    <a class="nav-link active" href="{{ route('home') }}">
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                    <a class="nav-link active" href="#navbar-usuarios" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-usuarios">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Laravel Examples') }}</span>
+                        <span class="nav-link-text" >{{ __('Usuários') }}</span>
                     </a>
 
-                    <div class="collapse show" id="navbar-examples">
+                    <div class="collapse" id="navbar-usuarios">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile.edit') }}">
-                                    {{ __('User profile') }}
+                                    {{ __('Meu Perfil') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('user.index') }}">
-                                    {{ __('User Management') }}
+                                    {{ __('Administrar Usuários') }}
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
+                
+                <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-formularios" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-formularios">
+                        <i class="ni ni-bullet-list-67 text-default" style="color: #f4645f;"></i>
+                        <span class="nav-link-text">Formulários</span>
+                    </a>
+
+                    <div class="collapse" id="navbar-formularios">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('formulariosadicionar') }}">
+                                    {{ __('Cadastrar') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('formularios') }}">
+                                    {{ __('Ver todas') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-pessoas" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-pessoas">
+                        <i class="ni ni-circle-08 text-blue" style="color: #f4645f;"></i>
+                        <span class="nav-link-text">{{ __('Pessoas') }}</span>
+                    </a>
+
+                    <div class="collapse" id="navbar-pessoas">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('adicionarpessoas') }}">
+                                    {{ __('Cadastrar') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('pessoa') }}">
+                                    {{ __('Ver todas') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!--<li class="nav-item mb-5 mr-4 ml-4 pl-1 bg-danger" style="position: absolute; bottom: 0;">
+                    <a class="nav-link text-white" href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank">
+                        <i class="ni ni-cloud-download-95"></i> Upgrade to PRO
+                    </a>
+                </li>
+            
+            
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('icons') }}">
                         <i class="ni ni-planet text-blue"></i> {{ __('Icones') }}
@@ -121,45 +171,9 @@
                       <span class="nav-link-text">Tabelas</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Register') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('formularios') }}">
-                      <i class="ni ni-bullet-list-67 text-default"></i>
-                      <span class="nav-link-text">Formulários</span>
-                    </a>
-                </li>
-                <!--<li class="nav-item mb-5 mr-4 ml-4 pl-1 bg-danger" style="position: absolute; bottom: 0;">
-                    <a class="nav-link text-white" href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank">
-                        <i class="ni ni-cloud-download-95"></i> Upgrade to PRO
-                    </a>
-                </li>-->
-            </ul>
-            <!-- Divider -->
-            <hr class="my-3">
-            <!-- Heading -->
-            <h6 class="navbar-heading text-muted">Documentation</h6>
-            <!-- Navigation -->
-            <ul class="navbar-nav mb-md-3">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/getting-started/overview.html">
-                        <i class="ni ni-spaceship"></i> Getting started
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/foundation/colors.html">
-                        <i class="ni ni-palette"></i> Foundation
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/components/alerts.html">
-                        <i class="ni ni-ui-04"></i> Components
-                    </a>
-                </li>
-            </ul>
+            
+            -->
+            
         </div>
     </div>
 </nav>

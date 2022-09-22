@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\PessoaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,12 +36,16 @@ Route::group(['middleware' => 'auth'], function () {
 	 //Route::get('/formularios', function () {return view('pages.formularios.formularios');})->name('formularios');
 	 //Route::get('/formularios/adicionar', function () {return view('pages.formularios.adicionar');})->name('adicionar');
 	 Route::get('/formularios', [FormController::class, 'forms'] )->name('formularios');
-	 Route::post('/formulariosadicionar', [FormController::class, 'store'] )->name('formularios1');
-	 Route::get('/formularios/adicionar', [FormController::class, 'adicionar'] );
+	 Route::post('/formulariosadicionar', [FormController::class, 'store'] );
+	 Route::get('/formularios/adicionar', [FormController::class, 'adicionar'] )->name('formulariosadicionar');;
 	 Route::delete('/formulariosdeletar/{id}', [FormController::class, 'destroy']);
 	 Route::get('/formularioseditar/{id}', [FormController::class, 'edit']);
 	 Route::put('/formularios/update/{id}', [FormController::class, 'update']);
 	 Route::get('/formulariosduplicar/{id}', [FormController::class, 'duplicar']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+
+	Route::get('/pessoa', [PessoaController::class, 'pessoa'])->name('pessoa');
+	Route::get('/pessoa/adicionar', [PessoaController::class, 'adicionar'])->name('adicionarpessoas');;
+	Route::post('/pessoaadicionar', [PessoaController::class, 'store'] );
 });
 

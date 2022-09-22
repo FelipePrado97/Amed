@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\PessoaController;
+use App\Http\Controllers\RecursoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,5 +48,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/pessoa', [PessoaController::class, 'pessoa'])->name('pessoa');
 	Route::get('/pessoa/adicionar', [PessoaController::class, 'adicionar'])->name('adicionarpessoas');;
 	Route::post('/pessoaadicionar', [PessoaController::class, 'store'] );
+
+	Route::get('/recurso', [RecursoController::class, 'recurso'])->name('recurso');
+	Route::get('/recurso/adicionar', [RecursoController::class, 'adicionar'])->name('adicionarrecurso');;
+	Route::post('/recursoadicionar', [RecursoController::class, 'store'] );
 });
 

@@ -85,7 +85,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="#navbar-usuarios" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-usuarios">
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                        <i class="ni ni-badge text-blue" style="color: #f4645f;"></i>
                         <span class="nav-link-text" >{{ __('Usuários') }}</span>
                     </a>
 
@@ -108,7 +108,7 @@
                 
                 <li class="nav-item">
                     <a class="nav-link active" href="#navbar-formularios" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-formularios">
-                        <i class="ni ni-bullet-list-67 text-default" style="color: #f4645f;"></i>
+                        <i class="ni ni-bullet-list-67 text-blue" style="color: #f4645f;"></i>
                         <span class="nav-link-text">Formulários</span>
                     </a>
 
@@ -143,6 +143,27 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('pessoa') }}">
                                     {{ __('Ver todas') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-recurso" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-recurso">
+                        <i class="ni ni-bag-17 text-blue" style="color: #f4645f;"></i>
+                        <span class="nav-link-text">{{ __('Recursos') }}</span>
+                    </a>
+
+                    <div class="collapse" id="navbar-recurso">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('adicionarrecurso') }}">
+                                    {{ __('Cadastrar') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('recurso') }}">
+                                    {{ __('Ver todos') }}
                                 </a>
                             </li>
                         </ul>

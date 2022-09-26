@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('rua')->nullable();
             $table->string('numerodacasa')->nullable();
             //medico
-            $table->string('crm')->unique();
+            $table->string('crm')->unique()->nullable();
             $table->string('rqe')->nullable();
             $table->string('foto')->nullable();
             $table->string('curriculo')->nullable();
@@ -40,9 +40,9 @@ return new class extends Migration
             $table->string('assinatura')->nullable();
             //paciente
             $table->string('convenio')->nullable();
-            $table->string('peso')->nullable();
-            $table->string('altura')->nullable();
-            $table->string('idade')->nullable();
+            $table->string('peso')->nullable();//
+            $table->string('altura')->nullable();//
+            $table->string('idade')->nullable();//tem q calcular automatico
             $table->string('etnia')->nullable();
             $table->string('estado civil')->nullable();
             $table->string('conjuge')->nullable();
@@ -52,7 +52,7 @@ return new class extends Migration
             $table->string('menarca')->nullable();
             $table->string('menopausa')->nullable();
             
-            $table->longText('queixa')->nullable();
+            $table->longText('queixa')->nullable();//1
             $table->longText('antecedentehistorico')->nullable();
             $table->longText('antecedentealergico')->nullable();
             $table->string('idade_constatado_problema')->nullable();

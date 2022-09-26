@@ -66,23 +66,21 @@
                 <div id="divpaciente" style="display: none;">
                     <form id="formpaciente" action="/pessoaadicionar" method="POST">
                         @csrf
+                        
                         <div class="form-group">
-                            <input type="hidden" class="form-control form-control-lg" placeholder="Funcao: " id="funcao" name="funcao"></input>
+                            <input type="text" class="form-control form-control-lg" placeholder="Nome: " id="nome" name="nome"></input>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="Nome do Paciente: " id="nome" name="nome"></input>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="Data de Nascimento: " id="datadenascimento" name="datadenascimento"></input>
+                            <input type="date" class="form-control form-control-lg" placeholder="Data de Nascimento: " id="datadenascimento" name="datadenascimento"></input>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control form-control-lg" placeholder="CPF: " id="cpf" name="cpf"></input>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="Email: " id="email" name="email"></input>
+                            <input type="email" class="form-control form-control-lg" placeholder="Email: " id="email" name="email"></input>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="Telefone: " id="telefone" name="telefone"></input>
+                            <input type="tel" class="form-control form-control-lg" placeholder="Telefone: " id="telefone" name="telefone"></input>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control form-control-lg" placeholder="Nacionalidade: " id="nacionalidade" name="nacionalidade"></input>
@@ -134,7 +132,7 @@
             document.getElementById('divpaciente').style.display = "none";
             document.getElementById('divmedico').style.display = "block";
             
-        }else if(opcaoValor == "paciente"){
+        }else{
             document.getElementById('divmedico').style.display = "none";
             document.getElementById('divpaciente').style.display = "block";
         }      
@@ -192,12 +190,13 @@
         if(msg == ''){
             console.log('Deu certo');
             //enviar formulario
+            var select = document.getElementById('selectcadastro');
             var opcaoValor =  select.options[select.selectedIndex].value;
             var input = document.createElement("input");
                 input.type = "text";
-                input.name = "array";
+                input.name = "funcao";
                 input.value = opcaoValor;
-                form.appendChild(input);
+                document.getElementById('formpaciente').appendChild(input);
             document.getElementById('formpaciente').submit();
             //  formmedico.submit();
 

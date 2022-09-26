@@ -52,7 +52,7 @@ class PessoaController extends Controller
         $form->rua = $request->rua;
         $form->numerodacasa = $request->numerodacasa;
 
-
+        $form->save();
 
         return redirect('/pessoa');
     }

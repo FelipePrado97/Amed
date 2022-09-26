@@ -57,5 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/consultas', [ConsultaController::class, 'listarconsultas'])->name('listarconsultas');
 	Route::get('/consultas/nova', [ConsultaController::class, 'adicionarconsulta'])->name('adicionarconsulta');;
 	Route::post('/buscarpaciente', [ConsultaController::class, 'buscarpaciente'] );
+	Route::post('/anamnese', [ConsultaController::class, 'anamnese']);
+	
 });
 

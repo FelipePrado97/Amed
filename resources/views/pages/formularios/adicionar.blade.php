@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="card">
-        <div>
+        
         <form id="form" action="/formulariosadicionar" method="POST">
             @csrf
             
@@ -22,11 +22,11 @@
             </div>
             <!--<input type="submit" class="btn btn-primary" value="Salvar">-->
         
-        <div class="saveDataWrap">
-        <button class="btn btn-primary" id="saveData" type="button">SALVAR</button>
-        </div>
-        </div>
-        <div id="build-wrap"></div>
+            <div class="saveDataWrap">
+                <button class="btn btn-primary" id="saveData" type="button">SALVAR</button>
+            </div>
+        
+            <div id="build-wrap"></div>
         </form>
         </div>
         

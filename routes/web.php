@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\RecursoController;
+use App\Http\Controllers\ConsultaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,8 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
 	 Route::get('map', function () {return view('pages.maps');})->name('map');
 	 Route::get('icons', function () {return view('pages.icons');})->name('icons'); 
 	 Route::get('table-list', function () {return view('pages.tables');})->name('table');
-	 //Route::get('/formularios', function () {return view('pages.formularios.formularios');})->name('formularios');
-	 //Route::get('/formularios/adicionar', function () {return view('pages.formularios.adicionar');})->name('adicionar');
 	 Route::get('/formularios', [FormController::class, 'forms'] )->name('formularios');
 	 Route::post('/formulariosadicionar', [FormController::class, 'store'] );
 	 Route::get('/formularios/adicionar', [FormController::class, 'adicionar'] )->name('formulariosadicionar');;
@@ -45,12 +44,18 @@ Route::group(['middleware' => 'auth'], function () {
 	 Route::get('/formulariosduplicar/{id}', [FormController::class, 'duplicar']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 
+	
 	Route::get('/pessoa', [PessoaController::class, 'pessoa'])->name('pessoa');
 	Route::get('/pessoa/adicionar', [PessoaController::class, 'adicionar'])->name('adicionarpessoas');;
+	Route::post('/pessoaadicionarmedico', [PessoaController::class, 'adicionarmedico'] );
 	Route::post('/pessoaadicionar', [PessoaController::class, 'store'] );
 
 	Route::get('/recurso', [RecursoController::class, 'recurso'])->name('recurso');
 	Route::get('/recurso/adicionar', [RecursoController::class, 'adicionar'])->name('adicionarrecurso');;
 	Route::post('/recursoadicionar', [RecursoController::class, 'store'] );
+
+	Route::get('/consultas', [ConsultaController::class, 'listarconsultas'])->name('listarconsultas');
+	Route::get('/consultas/nova', [ConsultaController::class, 'adicionarconsulta'])->name('adicionarconsulta');;
+	Route::post('/buscarpaciente', [ConsultaController::class, 'buscarpaciente'] );
 });
 

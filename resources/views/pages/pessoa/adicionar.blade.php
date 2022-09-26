@@ -16,6 +16,12 @@
                     <option selected>Tipo de Cadastro</option>
                     <option value="medico">Médico</option>
                     <option value="paciente">Paciente</option>
+                    <option value="enfermeiro">Enfermeiro</option>
+                    <option value="famaceutico">Farmaceutico</option>
+                    <option value="gerente">Gerente</option>
+                    <option value="administrador">Administrador</option>
+                    <option value="secretaria">Secretária</option>
+                    
                 </select>
 
                 <div id="divmedico" style="display: none;">
@@ -60,12 +66,47 @@
                 <div id="divpaciente" style="display: none;">
                     <form id="formpaciente" action="/pessoaadicionar" method="POST">
                         @csrf
-                        
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="Nome do Paciente: " id="titulo" name="titulo"></input>
+                            <input type="hidden" class="form-control form-control-lg" placeholder="Funcao: " id="funcao" name="funcao"></input>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="Data de Nascimento: " id="tipo" name="tipo"></input>
+                            <input type="text" class="form-control form-control-lg" placeholder="Nome do Paciente: " id="nome" name="nome"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Data de Nascimento: " id="datadenascimento" name="datadenascimento"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="CPF: " id="cpf" name="cpf"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Email: " id="email" name="email"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Telefone: " id="telefone" name="telefone"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Nacionalidade: " id="nacionalidade" name="nacionalidade"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Estado: " id="estado" name="estado"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Cidade: " id="cidade" name="cidade"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Bairro: " id="bairro" name="bairro"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Rua: " id="rua" name="rua"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Número / Apto / Bloco: " id="numerodacasa" name="numerodacasa"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="CEP: " id="cep" name="cep"></input>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" id="saveData" type="button" onclick="checarDados2()">Adicionar</button>    
                         </div>
                     </form>
                 </div><!--divpaciente-->
@@ -121,6 +162,43 @@
             console.log('Deu certo');
             //enviar formulario
             document.getElementById('formmedico').submit();
+            //  formmedico.submit();
+
+        }else{
+            alert(msg);
+            msg = '';
+        }
+        
+    }
+    function checarDados2() {
+        
+        console.log("Botão de salvar medico Clicado");
+        var msg = "";
+        if(document.getElementById('nome').value ==""){
+            msg = msg +" NOME não pode ser Vazio! \n";
+        }
+        if(document.getElementById('datadenascimento').value ==""){
+            msg = msg +" DATA DE NASCIMENTO não pode ser Vazio! \n";
+        }
+        if(document.getElementById('cpf').value ==""){
+            msg = msg +" CPF não pode ser Vazio! \n";
+        }
+        if(document.getElementById('email').value ==""){
+            msg = msg +" EMAIL não pode ser Vazio! \n";
+        }
+        if(document.getElementById('telefone').value ==""){
+            msg = msg +" TELEFONE não pode ser Vazio! \n";
+        }
+        if(msg == ''){
+            console.log('Deu certo');
+            //enviar formulario
+            var opcaoValor =  select.options[select.selectedIndex].value;
+            var input = document.createElement("input");
+                input.type = "text";
+                input.name = "array";
+                input.value = opcaoValor;
+                form.appendChild(input);
+            document.getElementById('formpaciente').submit();
             //  formmedico.submit();
 
         }else{

@@ -148,6 +148,7 @@
                         </ul>
                     </div>
                 </li>
+                
                 <li class="nav-item">
                     <a class="nav-link active" href="#navbar-recurso" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-recurso">
                         <i class="ni ni-bag-17 text-blue" style="color: #f4645f;"></i>
@@ -169,32 +170,29 @@
                         </ul>
                     </div>
                 </li>
-                <!--<li class="nav-item mb-5 mr-4 ml-4 pl-1 bg-danger" style="position: absolute; bottom: 0;">
-                    <a class="nav-link text-white" href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank">
-                        <i class="ni ni-cloud-download-95"></i> Upgrade to PRO
-                    </a>
-                </li>
-            
-            
+                
+                
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('icons') }}">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Icones') }}
+                    <a class="nav-link active" href="#navbar-consultas" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-consultas">
+                        <i class="ni ni-atom text-blue" style="color: #f4645f;"></i>
+                        <span class="nav-link-text">{{ __('Consultas') }}</span>
                     </a>
+
+                    <div class="collapse" id="navbar-consultas">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('adicionarconsulta') }}">
+                                    {{ __('Nova Consulta') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('listarconsultas') }}">
+                                    {{ __('Ver todas') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{ route('map') }}">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Mapas') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('table') }}">
-                      <i class="ni ni-bullet-list-67 text-default"></i>
-                      <span class="nav-link-text">Tabelas</span>
-                    </a>
-                </li>
-            
-            -->
-            
         </div>
     </div>
 </nav>

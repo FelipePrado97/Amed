@@ -34,7 +34,26 @@ class PessoaController extends Controller
         $form->save();
         return redirect('/pessoa');
     }
-    public function store(){
-        return view('pages.pessoa.listapessoas');
+    public function store(Request $request){
+        $form = new Pessoa;
+
+        $form->funcao = $request->funcao;
+        $form->password = $request->cpf;
+        $form->nome = $request->nome;
+        $form->email = $request->email;
+        $form->cpf = $request->cpf;
+        $form->telefone = $request->telefone;
+        $form->datadenascimento = $request->datadenascimento;
+        $form->nacionalidade = $request->nacionalidade;
+        $form->estado = $request->estado;
+        $form->cidade = $request->cidade;
+        $form->cep = $request->cep;
+        $form->bairro = $request->bairro;
+        $form->rua = $request->rua;
+        $form->numerodacasa = $request->numerodacasa;
+
+
+
+        return redirect('/pessoa');
     }
 }

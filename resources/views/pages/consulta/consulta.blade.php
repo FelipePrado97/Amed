@@ -16,7 +16,8 @@
                         <h3>Data de Nascimento: {{$paciente->datadenascimento}}</h3>
                     </div>
                     <div class="p-2 bd-highlight">
-                        <h3>CID: {{$paciente->cid}}</h3>
+                        <h3>CID: {{$paciente->CID}} {{$paciente->Estadiamento}}</h3>
+                        
                     </div>
                 </div>
             </div> <!--Final card infos-->
@@ -39,10 +40,35 @@
                 
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="cid" role="tabpanel" aria-labelledby="cid-tab">
-                        Conteúdo sobre cid do paciente
+                        
+                        @foreach($formC as $formC)
+                            <div class="d-flex flex-column bd-highlight mb-3"> <!--vertical-->
+                                <div class="d-flex flex-row bd-highlight mb-3"> <!--horizontal-->
+                                    <h2>
+                                        CID: 
+                                    </h2>
+                                    <h3>{{$formC->ref}} -{{$formC->sub}}-  {{$formC->descricao}}</h3>
+                                    <h3>{{$formC->variaveis}}</h3>    
+                                </div>
+                            </div>
+                        @endforeach
+                        <div class="d-flex flex-column bd-highlight mb-3"> <!--vertical-->
+                                <div class="d-flex flex-row bd-highlight mb-3"> <!--horizontal-->
+                                    <h2>
+                                        Estadiamento: 
+                                    </h2>   
+                                </div>
+                            </div>
+                        <form action="/formEstadiamento/{{$paciente->id}}" method='POST'>
+                            @csrf
+                            @method('PUT')
+                            <input type="text" placeholder='{{$paciente->Estadiamento}}' name='Estadiamento' id='Estadiamento'>
+                            <input type="submit">
+                        </form>
                     </div>
                     <div class="tab-pane fade" id="anamnese" role="tabpanel" aria-labelledby="anamnese-tab">
                         <h1>Anamnese do Paciente</h1>
+                        <div class="card-body">
                         <form action="/anamnese" id="formAnamnese" method="POST">
                             @csrf
                             @method('POST')
@@ -186,11 +212,18 @@
                                         <input class="form-control form-control-lg" type="file" class="form-control form-control-lg" placeholder="{{$paciente->anexar_exames}}" id="anexar_exames" name="anexar_exames" accept=" .doc, .docx, .pdf, .png, .jpg, .jpeg"></input>
                                     </div>        
                                 </div>
+                                <div class="d-flex flex-row bd-highlight mb-3"> <!--horizontal-->
+                                    <div class="form-group">
+                                        <label> CID Provável: </label>
+                                        <input class="form-control form-control-lg" type="text" class="form-control form-control-lg" placeholder="{{$paciente->cid}}" id="cid" name="cid"></input>
+                                    </div>        
+                                </div>
                             </div>
                             <div class="saveDataWrap">
                                 <button class="btn btn-primary" onclick='enviarAnamnese()' id="saveData" type="button">SALVAR</button>
                             </div>
                         </form>
+                    </div>
                     </div>
                     <div class="tab-pane fade" id="plano" role="tabpanel" aria-labelledby="plano-tab">Conteúdo sobre planoterapeutico</div>
                     <div class="tab-pane fade" id="prescricao" role="tabpanel" aria-labelledby="prescricao-tab">Conteúdo sobre prescricoes</div>
@@ -217,6 +250,9 @@
                 input.value = '{{$paciente->id}}';
                 document.getElementById('formAnamnese').appendChild(input);
                 document.getElementById('formAnamnese').submit();
+        }
+        function buscardados(){
+
         }
     </script>
 @endpush

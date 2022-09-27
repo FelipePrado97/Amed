@@ -61,9 +61,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('/remarcar/update/{id}', [ConsultaController::class, 'remarcarUpdate']);
 	Route::get('/consultas', [ConsultaController::class, 'listarconsultas'])->name('listarconsultas');
 	Route::get('/consultas/nova', [ConsultaController::class, 'adicionarconsulta'])->name('adicionarconsulta');
-	Route::post('/buscarpaciente', [ConsultaController::class, 'buscarpaciente'] );
+	Route::post('/buscarpaciente/{id}', [ConsultaController::class, 'buscarpaciente'] );
 	Route::post('/anamnese', [ConsultaController::class, 'anamnese']);
 	Route::post('/consultasAgendar', [ConsultaController::class, 'agendarconsulta']);
+	Route::put('/formEstadiamento/{id}', [ConsultaController::class, 'estadiamento']);
 	
 	Route::get('/listacid10', [CidController::class, 'listacid10'])->name('listacid10');
 	Route::get('/adicionarplano', [CidController::class, 'adicionarplano'])->name('adicionarplano');

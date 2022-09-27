@@ -8,7 +8,7 @@
         <div class="card" style="height: 5rem;">
             <div class="card-body">
                 <p class="card-text"></p>
-                <a href="consultas/nova" class="btn btn-primary"><i class="ni ni-fat-add"></i> Nova Consulta</a>
+                <a href="/agendar" class="btn btn-primary"><i class="ni ni-fat-add"></i> Agendar</a>
                 <a href="exportar" class="btn btn-secundary"><i class="ni ni-cloud-download-95"></i> Exportar</a>
             </div>
         </div>
@@ -41,7 +41,7 @@
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon>Cancelar</button>
                                     </form>
-                                    <form action="/formulariosduplicar/{{$form->id}}" method="POST" style="display: inherit;">
+                                    <form action="/buscarpaciente/{{$form->id}}" method="POST" style="display: inherit;">
                                         @csrf 
                                         @method('POST')
                                         <button type="submit" class="btn btn-secundary delete-btn"><ion-icon name="trash-outline"></ion-icon>Iniciar</button>

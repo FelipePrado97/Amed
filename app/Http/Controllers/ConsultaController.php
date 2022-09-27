@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Pessoa;
 use App\Models\Consulta;
+use App\Models\Cid;
+use App\Models\Estadiamento;
 
 
 class ConsultaController extends Controller
@@ -68,13 +70,21 @@ class ConsultaController extends Controller
         $msg = "";
         return view('pages.consulta.novaconsulta',['msg'=> $msg]);
     }
-    public function buscarpaciente(Request $request){
+    public function buscarpaciente($id){
         $msg = "CPF Não Encontrado!";
-        $paciente = Pessoa::where('cpf', $request->cpf)->first();
+
+        
+
+        //dd($paciente);
+
+        $paciente = Pessoa::where('id', $id)->first();
                  
         if($paciente) {
+            $formC = Cid::where('ref',$paciente->cid)->get();
+            $formE = Estadiamento::where('cid',$paciente->cid)->get();
+
+            return view('pages.consulta.consulta',['paciente'=>$paciente, 'formC'=>$formC, 'formE'=>$formE]);
             
-            return view('pages.consulta.consulta',['paciente'=>$paciente]);
         }
         else{
             return view('pages.consulta.novaconsulta',['msg'=> $msg]);
@@ -84,6 +94,7 @@ class ConsultaController extends Controller
     public function anamnese(Request $request){
         
         $form = Pessoa::find($request->id);
+        if($request->cid!=""){$form->cid = $request->cid;}
         if($request->queixa!=""){$form->queixa = $request->queixa;}
         if($request->peso!=""){$form->peso = $request->peso;} 
         if($request->altura!=""){$form->altura = $request->altura;} 
@@ -116,6 +127,23 @@ class ConsultaController extends Controller
 
         $form->update();
 
-        return view('pages.consulta.consulta',['paciente'=>$form]);
+        $formC = Cid::where('ref',$form->cid)->get();
+        $formE = Estadiamento::where('cid',$form->cid)->get();
+
+        return view('pages.consulta.consulta',['paciente'=>$form, 'formC'=>$formC, 'formE'=>$formE]);
+    }
+
+    public function estadiamento(Request $request){
+        $form = Pessoa::find($request->id);
+        $form->Estadiamento = $request->Estadiamento;
+
+        //$formE->update();
+        echo($form->Estadiamento);
+        $form->update();
+        
+        $formC = Cid::where('ref',$form->cid)->get();
+        $formE = Estadiamento::where('cid',$form->cid)->get();
+
+        return view('pages.consulta.consulta',['paciente'=>$form, 'formC'=>$formC, 'formE'=>$formE]);
     }
 }

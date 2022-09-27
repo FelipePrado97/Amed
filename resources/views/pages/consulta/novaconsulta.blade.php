@@ -6,15 +6,28 @@
     
     <div class="card-body">
         <div class="card">
-            <form id="buscapaciente" method="POST" action="/buscarpaciente">
+            <form action="/Estadiamento" method="post">
                 @csrf
                 @method('POST')
-                <div class="col-md-4">
-                    <label>Buscar Paciente: </label>
-                    <input type="text" name="cpf" id="cpf"cpf class="form-control form-control-lg" placeholder="Digite o CPF...">
-                    <button class="btn btn-primary" id="buscar" onclick="buscarcpf()" type="button">Buscar</button>
-                    <label>{{$msg}}</label>
-                </div>
+            <div class="form-group">
+            <label>Selecione Paciente: </label>
+                <select name="listarpacientes" id="listarpacientes" class="form-group" aria-label="form-control form-control-lg">
+                @foreach($selectPaciente as $selectPaciente)
+                    <option value="{{$selectPaciente->id}}">{{$selectPaciente->nome}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+            <label>Selecione o CID: </label> 
+            <select name="listarcid" id="listarcid" class="form-group" aria-label="form-control form-control-lg">
+               
+                @foreach($selectCid as $selectCid)
+                    <option value="{{$selectCid->id}}">{{$formCID->nome_cid}}</option>
+                @endforeach
+                </select>
+            </div>
+            
+            <input type="submit" value="Enviar">
             </form>
         </div>
     </div>
@@ -26,9 +39,7 @@
 <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
     <script>
-        function buscarcpf(){
-            document.getElementById('buscapaciente').submit();
-        }
+        
     </script>
 
 @endpush

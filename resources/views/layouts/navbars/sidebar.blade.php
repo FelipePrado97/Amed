@@ -181,12 +181,12 @@
                     <div class="collapse" id="navbar-consultas">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('agendar') }}">
+                                <a class="nav-link" href="{{route('novaconsulta')}}">
                                     {{ __('Agendar') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('listarconsultas') }}">
+                                <a class="nav-link" href="">
                                     {{ __('Ver todas') }}
                                 </a>
                             </li>

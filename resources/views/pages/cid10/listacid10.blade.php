@@ -18,9 +18,9 @@
                 <thead class="thead-light">
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">REF</th>
-                        <th scope="col">SUB</th>
-                        <th scope="col">DESCRIÇÃO Em</th>
+                        <th scope="col">COD</th>
+                        <th scope="col">DESCRIÇÃO</th>
+                        <th scope="col">COD_ESTADIAMENTO</th>
                         <th scope="col">AÇÕES</th>
                         </tr>
                     </thead>
@@ -28,9 +28,9 @@
                     @foreach($forms as $form)
                             <tr class="table">
                                 <td><a>{{$form->id}}</a></td>
-                                <td><a>{{$form->ref}}</a></td>
-                                <td><a>{{$form->sub}}</a></td>
+                                <td><a>{{$form->cod_cid}}</a></td>
                                 <td><a>{{$form->descricao}}</a></td>
+                                <td><a>{{$form->cod_estadiamento}}</a></td>
                                 <td class="text-right">
                                 <div style="display: inline; text-align: center;">
                                     <form action="/formularioseditar/{{$form->id}}" method="POST" style="display: inherit;">

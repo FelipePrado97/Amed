@@ -12,13 +12,7 @@ use App\Models\Estadiamento;
 
 class ConsultaController extends Controller
 {
-    public function agendar(){
-        
-        $formsM = Pessoa::where('funcao', 'Médico')->get(); 
-        $formsP = Pessoa::where('funcao', 'paciente')->get(); 
-        
-        return view('pages.consulta.agendar',['formsM' => $formsM],['formsP' => $formsP]);
-    }
+    
 
     public function remarcar($id){
         $form = Consulta::findOrFail($id);
@@ -145,5 +139,12 @@ class ConsultaController extends Controller
         $formE = Estadiamento::where('cid',$form->cid)->get();
 
         return view('pages.consulta.consulta',['paciente'=>$form, 'formC'=>$formC, 'formE'=>$formE]);
+    }
+
+    public function novaconsulta(){
+        $selectPaciente = Pessoa::where('funcao', 'paciente')->get(); 
+        $selectCid = Cid::all();
+        
+        return view('pages.consulta.novaconsulta',['selectPaciente'=>$selectPaciente, 'selectCid'=>$selectCid]);
     }
 }

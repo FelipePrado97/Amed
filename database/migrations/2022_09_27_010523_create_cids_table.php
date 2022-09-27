@@ -15,10 +15,17 @@ return new class extends Migration
     {
         Schema::create('cids', function (Blueprint $table) {
             $table->id();
-            $table->string('ref');
-            $table->string('sub');
+            $table->string('cod_cid');
             $table->string('descricao');
             $table->longText('variaveis')->nullable();
+            $table->string('cod_estadiamento')->nullable();
+            $table->string("estagio")->nullable();
+            $table->string("upstaging")->nullable();
+            $table->string("downtaging")->nullable();
+            $table->string("nomigration")->nullable();
+            $table->longText("exames_recomendados")->nullable();
+            $table->longText("tratamentos_recomendados")->nullable();
+            $table->longText("medicamentos_recomendados")->nullable();
             $table->timestamps();
         });
     }

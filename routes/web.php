@@ -56,7 +56,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/recurso/adicionar', [RecursoController::class, 'adicionar'])->name('adicionarrecurso');;
 	Route::post('/recursoadicionar', [RecursoController::class, 'store'] );
 
-	Route::get('/agendar', [ConsultaController::class, 'agendar'])->name('agendar');
 	Route::get('/remarcar/{id}', [ConsultaController::class, 'remarcar']);
 	Route::put('/remarcar/update/{id}', [ConsultaController::class, 'remarcarUpdate']);
 	Route::get('/consultas', [ConsultaController::class, 'listarconsultas'])->name('listarconsultas');
@@ -65,6 +64,12 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/anamnese', [ConsultaController::class, 'anamnese']);
 	Route::post('/consultasAgendar', [ConsultaController::class, 'agendarconsulta']);
 	Route::put('/formEstadiamento/{id}', [ConsultaController::class, 'estadiamento']);
+	
+	Route::get('/novaconsulta', [ConsultaController::class, 'novaconsulta'])->name('novaconsulta');
+
+
+
+
 	
 	Route::get('/listacid10', [CidController::class, 'listacid10'])->name('listacid10');
 	Route::get('/adicionarplano', [CidController::class, 'adicionarplano'])->name('adicionarplano');

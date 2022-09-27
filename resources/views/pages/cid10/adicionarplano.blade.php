@@ -24,10 +24,7 @@
                 <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="cid" role="tabpanel" aria-labelledby="cid-tab"> 
                             <div class='form-group'>
-                                <label>COD CID:<label><input type="text" name="ref" id="ref" class="form-control form-control-lg">
-                            </div>
-                            <div class='form-group'>
-                                <label>COD SUB:<label><input type="text" name="sub" id="sub" class="form-control form-control-lg">
+                                <label>COD CID:<label><input type="text" name="cod_cid" id="cod_cid" class="form-control form-control-lg">
                             </div>
                             <div class='form-group'>
                                 <label>Descrição:<label><input type="text" name="descricao" id="descricao" class="form-control form-control-lg">
@@ -40,7 +37,7 @@
                             <div class="d-flex flex-row bd-highlight mb-3">
                                 <div class='p-2 bd-highlight'>
                                     <label>Cod Estadiamento: <label>
-                                    <input type="text" name="codigoestadiamento" id="codigoestadiamento" class="form-control form-control-lg">
+                                    <input type="text" name="cod_estadiamento" id="codigoestadiamento" class="form-control form-control-lg">
                                 </div>
                                 <div class='p-2 bd-highlight'>
                                     <label>Estagio: <label>
@@ -66,11 +63,11 @@
                                 </div>
                                 <div class='p-2 bd-highlight'>
                                     <label>Tratamentos Recomendados: <label>
-                                    <textarea rows="" cols="60" type="text" name="tratamento" id="tratamento" class="form-control form-control-lg"></textarea>
+                                    <textarea rows="" cols="60" type="text" name="tratamentos_recomendados" id="tratamento" class="form-control form-control-lg"></textarea>
                                 </div>
                                 <div class='p-2 bd-highlight'>
                                     <label>Medicamentos Recomendados: <label>
-                                    <textarea rows="" cols="60" type="text" name="medicamentos" id="medicamentos" class="form-control form-control-lg"></textarea>
+                                    <textarea rows="" cols="60" type="text" name="medicamentos_recomendados" id="medicamentos" class="form-control form-control-lg"></textarea>
                                 </div>
                             </div>
                         </div>

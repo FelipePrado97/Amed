@@ -181,13 +181,34 @@
                     <div class="collapse" id="navbar-consultas">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('adicionarconsulta') }}">
-                                    {{ __('Nova Consulta') }}
+                                <a class="nav-link" href="{{ route('agendar') }}">
+                                    {{ __('Agendar') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('listarconsultas') }}">
                                     {{ __('Ver todas') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-CID10" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-CID10">
+                        <i class="ni ni-book-bookmark text-blue" style="color: #f4645f;"></i>
+                        <span class="nav-link-text">{{ __('CID10') }}</span>
+                    </a>
+
+                    <div class="collapse" id="navbar-CID10">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('adicionarplano') }}">
+                                    {{ __('Cadastrar') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('listacid10') }}">
+                                    {{ __('Ver todos') }}
                                 </a>
                             </li>
                         </ul>

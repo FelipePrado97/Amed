@@ -5,6 +5,8 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\RecursoController;
 use App\Http\Controllers\ConsultaController;
+use App\Http\Controllers\CidController;
+use App\Http\Controllers\EstadiamentoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,10 +56,20 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/recurso/adicionar', [RecursoController::class, 'adicionar'])->name('adicionarrecurso');;
 	Route::post('/recursoadicionar', [RecursoController::class, 'store'] );
 
+	Route::get('/agendar', [ConsultaController::class, 'agendar'])->name('agendar');
+	Route::get('/remarcar/{id}', [ConsultaController::class, 'remarcar']);
+	Route::put('/remarcar/update/{id}', [ConsultaController::class, 'remarcarUpdate']);
 	Route::get('/consultas', [ConsultaController::class, 'listarconsultas'])->name('listarconsultas');
-	Route::get('/consultas/nova', [ConsultaController::class, 'adicionarconsulta'])->name('adicionarconsulta');;
+	Route::get('/consultas/nova', [ConsultaController::class, 'adicionarconsulta'])->name('adicionarconsulta');
 	Route::post('/buscarpaciente', [ConsultaController::class, 'buscarpaciente'] );
 	Route::post('/anamnese', [ConsultaController::class, 'anamnese']);
+	Route::post('/consultasAgendar', [ConsultaController::class, 'agendarconsulta']);
+	
+	Route::get('/listacid10', [CidController::class, 'listacid10'])->name('listacid10');
+	Route::get('/adicionarplano', [CidController::class, 'adicionarplano'])->name('adicionarplano');
+	Route::post('/cadastrarCID', [CidController::class, 'cadastrarCID']);
+	Route::post('/cadastrarPlano', [CidController::class, 'cadastrarPlano']);
+	Route::post('/cadastrarPresc', [CidController::class, 'cadastrarPresc']);
 	
 });
 

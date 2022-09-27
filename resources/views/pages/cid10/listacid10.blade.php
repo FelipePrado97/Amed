@@ -8,7 +8,7 @@
         <div class="card" style="height: 5rem;">
             <div class="card-body">
                 <p class="card-text"></p>
-                <a href="consultas/nova" class="btn btn-primary"><i class="ni ni-fat-add"></i> Nova Consulta</a>
+                <a href="/adicionarplano" class="btn btn-primary"><i class="ni ni-fat-add"></i> Nova Consulta</a>
                 <a href="exportar" class="btn btn-secundary"><i class="ni ni-cloud-download-95"></i> Exportar</a>
             </div>
         </div>
@@ -18,34 +18,32 @@
                 <thead class="thead-light">
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Paciente</th>
-                        <th scope="col">Data</th>
-                        <th scope="col">Ações</th>
+                        <th scope="col">REF</th>
+                        <th scope="col">SUB</th>
+                        <th scope="col">DESCRIÇÃO Em</th>
+                        <th scope="col">AÇÕES</th>
                         </tr>
                     </thead>
                     <tbody id="tabela-lista-formularios" style="text-align: center; position: center;">
                     @foreach($forms as $form)
                             <tr class="table">
                                 <td><a>{{$form->id}}</a></td>
-                                <td><a>{{$form->nome}}</a></td>
-                                <td><a>{{$form->data}} - {{$form->hora}}</a></td>
+                                <td><a>{{$form->ref}}</a></td>
+                                <td><a>{{$form->sub}}</a></td>
+                                <td><a>{{$form->descricao}}</a></td>
                                 <td class="text-right">
                                 <div style="display: inline; text-align: center;">
-                                    <form action="/remarcar/{{$form->id}}" method="POST" style="display: inherit;">
+                                    <form action="/formularioseditar/{{$form->id}}" method="POST" style="display: inherit;">
                                         @csrf 
                                         @method('GET')
-                                        <button type="submit" class="btn btn-primary delete-btn"><ion-icon name="trash-outline"></ion-icon>Remarcar</button>
+                                        <button type="submit" class="btn btn-primary delete-btn"><ion-icon name="trash-outline"></ion-icon>Editar</button>
                                     </form>
-                                    <form action="/cancelar/{{$form->id}}" method="POST"style="display: inherit;">
+                                    <form action="/formulariosdeletar/{{$form->id}}" method="POST"style="display: inherit;">
                                         @csrf 
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon>Cancelar</button>
+                                        <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon>Deletar</button>
                                     </form>
-                                    <form action="/formulariosduplicar/{{$form->id}}" method="POST" style="display: inherit;">
-                                        @csrf 
-                                        @method('POST')
-                                        <button type="submit" class="btn btn-secundary delete-btn"><ion-icon name="trash-outline"></ion-icon>Iniciar</button>
-                                    </form>
+                                    
                                 </div>
                             </td>
                             </tr>

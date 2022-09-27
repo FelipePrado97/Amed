@@ -18,8 +18,8 @@
                 <thead class="thead-light">
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Título</th>
-                        <th scope="col">Tipo</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Função</th>
                         <th scope="col">Modificado Em</th>
                         <th scope="col">Ações</th>
                         </tr>

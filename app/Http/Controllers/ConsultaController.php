@@ -3,14 +3,66 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Pessoa;
 use App\Models\Consulta;
 
 
 class ConsultaController extends Controller
 {
+    public function agendar(){
+        
+        $formsM = Pessoa::where('funcao', 'Médico')->get(); 
+        $formsP = Pessoa::where('funcao', 'paciente')->get(); 
+        
+        return view('pages.consulta.agendar',['formsM' => $formsM],['formsP' => $formsP]);
+    }
+
+    public function remarcar($id){
+        $form = Consulta::findOrFail($id);
+        //echo($form);
+        $formsM = Pessoa::where('funcao', 'Médico')->get(); 
+        $formsP = Pessoa::where('funcao', 'paciente')->get(); 
+       //echo($formsM);
+        //echo($formsP);
+        return view('pages.consulta.remarcar',['formsM' => $formsM,'formsP' => $formsP,'form' => $form]);
+    }
+
+    public function remarcarUpdate(Request $request){
+        $form = Consulta::find($request->id);
+
+        $form->agendado_por = auth()->user()->name;
+        $form->id_medico = $request->id_medico;
+        $form->id_paciente = $request->id_paciente;
+        $form->data = $request->data;
+        $form->hora = $request->hora;
+
+        $form->update();
+
+        return redirect('/consultas');
+    }
+
+    public function agendarconsulta(Request $request){
+        $form = new Consulta;
+        $form->agendado_por = auth()->user()->name;
+        $form->id_medico = $request->id_medico;
+        $form->id_paciente = $request->id_paciente;
+        $form->data = $request->data;
+        $form->hora = $request->hora;
+
+        $form->save();
+        return redirect('/consultas');
+    }
+
     public function listarconsultas(){
-        return view('pages.consulta.listarconsultas');
+     
+        $forms = DB::table('consultas')
+        ->join('pessoas', 'pessoas.id','=','consultas.id_paciente')
+        ->select('consultas.*', 'pessoas.*')
+        ->get();
+        //dd($forms);
+
+        return view('pages.consulta.listarconsultas',['forms' => $forms]);
     }
     public function adicionarconsulta(){
         $msg = "";
